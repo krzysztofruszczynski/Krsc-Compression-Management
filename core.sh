@@ -20,6 +20,11 @@ then
     exit
 fi
 
+if [ ! -f ${statisticsFolderName} ]
+then
+    mkdir -p ${statisticsFolderName}
+fi
+
 echo 'Write password for archives:'
 read password
 date

@@ -8,6 +8,9 @@ dropboxFolderName="please_set_your_path"
 # folder where compressed archives are stored (WITH / on end!)
 dropboxArchivesFolderName="please_set_your_path"
 
+# folder where incremental archives are stored (if variable empty, than incremental copy is not made)
+incrementalFolder=''
+
 # name of subfolder in application folder where statistics regarding compression are stored
 statisticsFolderName='stats/'
 

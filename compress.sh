@@ -5,6 +5,14 @@
 echo 'Krsc Compression Management - COMPRESSION'
 source 'core.sh'
 
+addIncrementalArchive()
+{
+    if [ ! -z ${incrementalFolder} ]
+    then
+        cp $1 ${incrementalFolder}
+    fi
+}
+
 compareArchive()
 {
     md5Archive=$( md5sum $1.${extension} | awk '{print $1;}' )
@@ -22,6 +30,7 @@ compareArchive()
     then
         md5sum ${dropboxArchivesFolderName}${1}.${extension} >> ${actualDirectory}/${fileWithSummary}
         echo 'new archive: ' >> ${actualDirectory}/${fileWithSummary}
+        addIncrementalArchive ${1}.${extension}
         mv -f ${1}.${extension} $dropboxArchivesFolderName
     else   
         echo 'no change in archive: '${md5OldArchive} >> ${actualDirectory}/${fileWithSummary}
@@ -92,7 +101,8 @@ doSummary()
     numberOfCompressedFiles=$( cat $fileWithSummary | grep 'Adding    ' | wc -l )
 
     addFile ${contentArchiveName} ${fileWithSummary}
-    
+    addIncrementalArchive ${dropboxArchivesFolderName}${contentArchiveName}.${extension}
+
     echo 'Statistics:'
     echo 'Number of files to compress:' $numberOfFilesToCompress
     echo 'Number of files compressed:' $numberOfCompressedFiles
