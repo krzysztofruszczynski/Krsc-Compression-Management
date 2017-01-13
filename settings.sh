@@ -17,6 +17,9 @@ statisticsFolderName='stats/'
 # name of file with summary about compression
 fileWithSummary=${statisticsFolderName}"summary.txt"
 
+# name of file with contents of archive testing
+fileArchiveTests=${statisticsFolderName}"archive_tests.txt"
+
 # name (with relative path) of files which are to be compressed
 fileToArchive=${statisticsFolderName}"to_archive.txt"
 

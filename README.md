@@ -13,16 +13,24 @@ Before you start
 ===========
 Folder to which compressed data are extracted and source for compression is not set. Please change value of variable in settings.sh:6 (with "/" on end).<br/>
 Folder where compressed archives are stored is not set. Please change value of variable in settings.sh:9 (with "/" on end).<br/>
-If at least one of that parameter would not be set, application will notice you about that and terminate further action.
+If at least one of that parameter would not be set, application will notice you about that and terminate further action.<br/>
+<br/>
+Apart from those two paths, you can OPTIONALLY set incremental folder ( settings.sh:12 ). In that folder will be placed all archives, which have changed from last execution of compress command.
+It can ease the process of uploading data to external server, for example ftp server. If variable is empty, than incremental copy is not made (default behaviour).
+<br/>
 
 Usage
 ===========
-If you want to compress data please use the command:
+If you want to compress data, please use the command:
 <pre>
 ./compress.sh
 </pre>
-If you want to extract data please use the command:
+If you want to extract data, please use the command:
 <pre>
 ./extract.sh
+</pre>
+To test, if data were compressed correctly, please use the command:
+<pre>
+./test.sh
 </pre>
 Each time you would be requested for password (visible on the screen). Please take into the account, that extraction is made to the same folder, which is source for compression.

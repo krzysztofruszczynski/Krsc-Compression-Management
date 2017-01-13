@@ -31,6 +31,7 @@ compareArchive()
         md5sum ${dropboxArchivesFolderName}${1}.${extension} >> ${actualDirectory}/${fileWithSummary}
         echo 'new archive: ' >> ${actualDirectory}/${fileWithSummary}
         addIncrementalArchive ${1}.${extension}
+        testArchive ${1}.${extension}
         mv -f ${1}.${extension} $dropboxArchivesFolderName
     else   
         echo 'no change in archive: '${md5OldArchive} >> ${actualDirectory}/${fileWithSummary}
@@ -79,6 +80,9 @@ clearStatistics()
     mv $fileWithSummary ${fileWithSummary}.bak
     touch $fileWithSummary
 
+    rm $fileArchiveTests
+    touch $fileArchiveTests
+
     rm $fileToArchive
     touch $fileToArchive
 
@@ -101,11 +105,13 @@ doSummary()
     numberOfCompressedFiles=$( cat $fileWithSummary | grep 'Adding    ' | wc -l )
 
     addFile ${contentArchiveName} ${fileWithSummary}
+    testArchive ${dropboxArchivesFolderName}${contentArchiveName}.${extension}
     addIncrementalArchive ${dropboxArchivesFolderName}${contentArchiveName}.${extension}
 
     echo 'Statistics:'
     echo 'Number of files to compress:' $numberOfFilesToCompress
     echo 'Number of files compressed:' $numberOfCompressedFiles
+    echo 'Look in '${actualDirectory}/${fileArchiveTests}' for tests results or execute test.sh file to test all archives.'
     date
     echo 'End of script'
 }
