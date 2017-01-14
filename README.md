@@ -34,3 +34,11 @@ To test, if data were compressed correctly, please use the command:
 ./test.sh
 </pre>
 Each time you would be requested for password (visible on the screen). Please take into the account, that extraction is made to the same folder, which is source for compression.
+
+Custom settings
+===========
+If you want to load custom settings, which will overwrite those set in settings.sh, please use -s parameter for each command presented before.
+For example:
+<pre>
+./compress.sh -s path_to_your_file_with_settings.sh
+</pre>

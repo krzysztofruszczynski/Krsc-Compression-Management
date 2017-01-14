@@ -10,7 +10,7 @@ touch $fileArchiveTests
 
 cd ${dropboxArchivesFolderName}
 
-for archiveToTest in $(find $1 -maxdepth 1 -type f | grep .${extension})
+for archiveToTest in $(find . -maxdepth 1 -type f | grep .${extension})
 do
     testArchive ${archiveToTest}
 done
