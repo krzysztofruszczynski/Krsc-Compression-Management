@@ -17,7 +17,7 @@ fi
 
 cd $dropboxArchivesFolderName
 
-for archiveToUnpack in $( ls | grep \.rar)
+for archiveToUnpack in $( ls | grep \.${extension} )
 do
     extractArchive $archiveToUnpack $dropboxFolderName
 done

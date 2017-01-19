@@ -112,8 +112,6 @@ doSummary()
     echo 'Number of files to compress:' $numberOfFilesToCompress
     echo 'Number of files compressed:' $numberOfCompressedFiles
     echo 'Look in '${actualDirectory}/${fileArchiveTests}' for tests results or execute test.sh file to test all archives.'
-    date
-    echo 'End of script'
 }
 
 checkIntegrity()
@@ -152,9 +150,15 @@ fi
 
 doSummary
 
+# moving to trash archives for folders, which were deleted
+source 'compare.sh'
+
 if [ ${ifCheckingIntegrity} == 1 ]
 then
     checkIntegrity
 fi
 
 IFS=$oldIFS
+
+date
+echo 'End of script'

@@ -11,6 +11,9 @@ dropboxArchivesFolderName="please_set_your_path"
 # folder where incremental archives are stored (if variable empty, than incremental copy is not made)
 incrementalFolder=''
 
+# folder (inside dropboxArchivesFolderName folder when with relative path), where archives from deleted folders are moved
+trashFolder='to_delete'
+
 # name of subfolder in application folder where statistics regarding compression are stored
 statisticsFolderName='stats/'
 
@@ -19,6 +22,9 @@ fileWithSummary=${statisticsFolderName}"summary.txt"
 
 # name of file with contents of archive testing
 fileArchiveTests=${statisticsFolderName}"archive_tests.txt"
+
+# name (with relative path) of files which are to be deleted
+fileToDelete=${statisticsFolderName}"to_delete.txt"
 
 # name (with relative path) of files which are to be compressed
 fileToArchive=${statisticsFolderName}"to_archive.txt"
@@ -34,10 +40,10 @@ integrityFolderName="integrity/"
 
 # flag, whether to add empty folders to compression ( 1 - yes, otherwise - no); if yes, they are added to archive with name as value from $emptyFoldersArchiveName
 addEmptyFolders=1
-emptyFoldersArchiveName='e'
+emptyFoldersArchiveName='em'
 
 # name of file with details of compressed content
-contentArchiveName='c'
+contentArchiveName='co'
 
 # name of extension, which is used (application will search for file with that name and extension sh in subfolder of application specified in $extensionsFolder
 extension='rar'

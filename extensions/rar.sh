@@ -21,7 +21,7 @@ addFile()
     archiveName=$1
     addedFile=$2
 
-    rar a -hp$password ${dropboxArchivesFolderName}${archiveName}.rar ${addedFile}
+    rar a -hp$password ${dropboxArchivesFolderName}${archiveName}.rar ${addedFile} >> ${actualDirectory}/${fileWithSummary}
 }
 
 addEmptyFolder()
